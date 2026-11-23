@@ -1,0 +1,50 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  <Box style={{ width: 1280, height: 56, background: '#1E4FA8', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px' }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#FFFFFF' }}>DWD 星型建模与分区策略</Text>
+    <Text style={{ fontSize: 14, color: '#B8CCEB' }}>02 · 数据治理与数仓建设</Text>
+  </Box>
+  <Box style={{ padding: '24px 40px', flexDirection: 'column', gap: 18 }}>
+    <Box style={{ flexDirection: 'row', gap: 20 }}>
+      <Box style={{ flex: 1.2, background: '#F7F9FC', borderRadius: 8, border: '1px solid #D6DCE5', padding: '18px 22px', flexDirection: 'column', gap: 10 }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#0E3F8C' }}>星型模型：事实表 + 维度表</Text>
+        <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.7 }}>
+          <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>事实表</span>：dwd_order（度量 pay_amount / discount_amount，外键 user_id / store_id / order_date）、dwd_order_item、dwd_user_behavior
+          <br /><span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>维度表</span>：dim_user / dim_product / dim_store / dim_date + 清洗配套的 dim_member_level、dim_pay_type 编码映射表
+        </Text>
+        <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.7 }}>
+          <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>选型理由</span>：维度表非规范化、事实表外键直连维度，JOIN 路径短、查询简单，符合 Kimball 维度建模推荐，适配销售分析场景。
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, flexDirection: 'column', gap: 14 }}>
+        <Box style={{ background: '#F0F5FC', borderRadius: 8, padding: '16px 20px', flexDirection: 'column', gap: 6 }}>
+          <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#0E3F8C' }}>分区：按月 12 分区（一次成功）</Text>
+          <Text style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.6 }}>分区裁剪实测仅读 1/12 数据量：4.9s → 4.4s</Text>
+        </Box>
+        <Box style={{ background: '#F7F9FC', borderRadius: 8, border: '1px solid #D9534F', padding: '16px 20px', flexDirection: 'column', gap: 6 }}>
+          <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#D9534F' }}>踩坑：按天分区方案失败</Text>
+          <Text style={{ fontSize: 14, color: '#4A5568', lineHeight: 1.6 }}>
+            Hive 动态分区默认上限 100；调参后 366 分区一次性提交仍触发 metastore MoveTask 回滚。结论：中等数据量按月分区是可靠性与裁剪收益的平衡点。
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+    <Box style={{ flexDirection: 'row', gap: 20 }}>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 8, padding: '14px 20px', flexDirection: 'column', gap: 6 }}>
+        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#0E3F8C' }}>分桶设计</Text>
+        <Text style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.6 }}>dwd_order 按 user_id 分 4 桶（CLUSTERED BY），为用户级 JOIN 与抽样优化预留</Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 8, padding: '14px 20px', flexDirection: 'column', gap: 6 }}>
+        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#0E3F8C' }}>DWS → ADS 上卷</Text>
+        <Text style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.6 }}>DWS 日×门店/品类/渠道 4 表轻度汇总；ADS 5 表直接对接仪表板与大屏</Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 8, padding: '14px 20px', flexDirection: 'column', gap: 6 }}>
+        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#0E3F8C' }}>存储格式</Text>
+        <Text style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.6 }}>ODS 贴源 TEXTFILE；DWD 及以下 ORC 列存压缩，事实表按月分区</Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>云购生活新零售数仓 · ydsh-team</Text>
+    <Text style={{ fontSize: 14, color: '#1E4FA8' }}>06</Text>
+  </Box>
+</Slide>

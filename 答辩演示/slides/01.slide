@@ -1,0 +1,30 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', position: 'relative' }}>
+  <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 8, background: '#1E4FA8' }} />
+  <Box style={{ position: 'absolute', top: 120, left: 0, width: 1280, flexDirection: 'column', alignItems: 'center', gap: 18 }}>
+    <Text style={{ fontSize: 20, color: '#3D7BD9', letterSpacing: 6 }}>企业项目实战实训 · 综合答辩</Text>
+    <Text style={{ fontSize: 54, fontWeight: 'bold', color: '#0E3F8C', textAlign: 'center', lineHeight: 1.2 }}>
+      云购生活新零售企业<br />数据仓库与经营分析可视化系统
+    </Text>
+    <Text style={{ fontSize: 17, color: '#4A5568', textAlign: 'center', lineHeight: 1.5 }}>
+      Enterprise Data Warehouse &amp; Business Analytics System for Yundu Life Retail
+    </Text>
+  </Box>
+  <Box style={{ position: 'absolute', top: 420, left: 240, width: 800, flexDirection: 'column', gap: 10 }}>
+    <Box style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+      <Box style={{ width: 380, background: '#F0F5FC', borderRadius: 8, padding: '16px 20px' }}>
+        <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>
+          <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>全链路交付：</span>原始 CSV → ODS → 清洗 → DWD → DWS → ADS → 预测 → NL2SQL → 可视化 → 一键部署
+        </Text>
+      </Box>
+      <Box style={{ width: 380, background: '#F0F5FC', borderRadius: 8, padding: '16px 20px' }}>
+        <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>
+          <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>核心成果：</span>GMV 1,415 万元指标闭环、五类脏数据 100% 修复、NL2SQL 问答 4/4 用例通过
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', top: 580, left: 0, width: 1280, flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+    <Text style={{ fontSize: 18, color: '#1A2230' }}>汇报人：张宇（20230308059）　　团队：ydsh-team</Text>
+    <Text style={{ fontSize: 15, color: '#8B97A8' }}>2026 年 11 月</Text>
+  </Box>
+</Slide>

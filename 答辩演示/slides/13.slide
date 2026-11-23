@@ -1,0 +1,54 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  <Box style={{ width: 1280, height: 56, background: '#1E4FA8', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px' }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#FFFFFF' }}>工程化：五大文档与 Git 协同治理</Text>
+    <Text style={{ fontSize: 14, color: '#B8CCEB' }}>05 · 工程化与总结</Text>
+  </Box>
+  <Box style={{ padding: '24px 40px', flexDirection: 'column', gap: 18 }}>
+    <Box style={{ flexDirection: 'row', gap: 20 }}>
+      <Box style={{ flex: 1, background: '#F7F9FC', borderRadius: 8, border: '1px solid #D6DCE5', padding: '16px 22px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>五大项目文档（口径统一、可追溯）</Text>
+        {[
+          ['需求文档', '业务背景、需求分析、指标体系口径表'],
+          ['数据质量清洗报告', '五类脏数据 + 修复率 100% 实测证据'],
+          ['架构设计文档', '四层架构、星型建模、技术选型理由'],
+          ['部署手册 / API 配置指南', '环境依赖、部署步骤、密钥配置、常见问题'],
+          ['英文 README', '国际化开源说明：架构图 / Quick Start / 技术栈'],
+        ].map(([a, b]) => (
+          <Text key={a} style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.6 }}>
+            <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>{a}</span>　{b}
+          </Text>
+        ))}
+      </Box>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 8, border: '1px solid #D6DCE5', padding: '16px 22px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>Git 审查结论（4 仓库，30+ 提交）</Text>
+        {[
+          ['约定式提交', 'feat / fix / docs / chore 全部规范'],
+          ['分支策略', 'main 干线清晰，功能走 feature 分支'],
+          ['PR 协同演练', 'Issue #1 ↔ PR #2 关联，Closes 自动关闭'],
+          ['冲突解决', '两分支各改同一行 → 融合式解决留痕'],
+          ['安全', '.env 全程隔离，无密钥泄露'],
+        ].map(([a, b]) => (
+          <Text key={a} style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.6 }}>
+            <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>{a}</span>　{b}
+          </Text>
+        ))}
+      </Box>
+    </Box>
+    <Box style={{ background: '#F0F5FC', borderRadius: 8, padding: '14px 20px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+      <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.6, flex: 1 }}>
+        <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>数据一致性核对：23 项全通过。</span>ODS 六表行数与字典吻合、DWD 去重/异常清零、三层 GMV 完全一致（14,151,214.68 元）、应用层端到端可用——全链路可一键复现。
+      </Text>
+    </Box>
+    <Box style={{ flexDirection: 'row', gap: 14 }}>
+      {['ydsh-week1 环境与ODS', 'ydsh-week2 清洗与建模', 'ydsh-week3 KPI与AI', 'ydsh-week4 可视化部署'].map((r) => (
+        <Box key={r} style={{ flex: 1, background: '#FFFFFF', border: '1px solid #D6DCE5', borderRadius: 8, padding: '10px 14px' }}>
+          <Text style={{ fontSize: 13.5, color: '#0E3F8C', fontWeight: 'bold', textAlign: 'center' }}>{r}</Text>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>云购生活新零售数仓 · ydsh-team</Text>
+    <Text style={{ fontSize: 14, color: '#1E4FA8' }}>13</Text>
+  </Box>
+</Slide>

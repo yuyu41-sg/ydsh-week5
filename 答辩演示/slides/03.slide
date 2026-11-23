@@ -1,0 +1,43 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  <Box style={{ width: 1280, height: 56, background: '#1E4FA8', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px' }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#FFFFFF' }}>项目背景与建设目标</Text>
+    <Text style={{ fontSize: 14, color: '#B8CCEB' }}>01 · 项目背景与总体架构</Text>
+  </Box>
+  <Box style={{ padding: '28px 40px', flexDirection: 'column', gap: 22 }}>
+    <Box style={{ flexDirection: 'row', gap: 20 }}>
+      {[
+        ['数据孤岛', '订单、用户、商品、门店数据分散在业务系统导出的 CSV 中，无法跨主题关联分析，约 11.5 万行源数据缺乏统一管理。'],
+        ['数据质量差', '源数据存在缺失、重复、枚举混乱、异常金额、格式不统一等五类脏数据：仅订单表就有 600 条冗余重复、312 条千万级异常金额。'],
+        ['决策靠人工', '经营指标靠 Excel 人工汇总，缺乏自动化报表、可视化大屏与智能问数能力，取数门槛高、响应慢。'],
+      ].map(([t, d]) => (
+        <Box key={t} style={{ flex: 1, background: '#F7F9FC', borderRadius: 8, padding: '20px 22px', border: '1px solid #D6DCE5', flexDirection: 'column', gap: 10 }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            <Box style={{ width: 10, height: 26, background: '#D9534F', borderRadius: 2 }} />
+            <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#1A2230' }}>{t}</Text>
+          </Box>
+          <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.6 }}>{d}</Text>
+        </Box>
+      ))}
+    </Box>
+    <Box style={{ background: '#0E3F8C', borderRadius: 8, padding: '20px 26px', flexDirection: 'column', gap: 8 }}>
+      <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#FFFFFF' }}>建设目标：构建"可复现、可追溯、可问答"的企业级数仓与经营分析系统</Text>
+      <Text style={{ fontSize: 15, color: '#C9D8F0', lineHeight: 1.6 }}>
+        统一指标口径，沉淀 ODS→DWD→DWS→ADS 四层资产；配套 BI 仪表板、数据大屏与 NL2SQL 智能问数；以 Docker Compose 一键部署，支撑管理层日常决策与运营团队自助分析。
+      </Text>
+    </Box>
+    <Box style={{ flexDirection: 'row', gap: 20 }}>
+      {[
+        ['6 张', 'ODS 源表接入'], ['11.5 万行', '源数据规模'], ['5 类', '脏数据全治理'], ['4 层', '数仓分层建模'],
+      ].map(([n, d]) => (
+        <Box key={n} style={{ flex: 1, background: '#F0F5FC', borderRadius: 8, padding: '12px 16px', flexDirection: 'row', alignItems: 'baseline', gap: 10 }}>
+          <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#1E4FA8' }}>{n}</Text>
+          <Text style={{ fontSize: 14, color: '#4A5568' }}>{d}</Text>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>云购生活新零售数仓 · ydsh-team</Text>
+    <Text style={{ fontSize: 14, color: '#1E4FA8' }}>03</Text>
+  </Box>
+</Slide>

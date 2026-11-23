@@ -1,0 +1,49 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  <Box style={{ width: 1280, height: 56, background: '#1E4FA8', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px' }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#FFFFFF' }}>一键部署与压力测试</Text>
+    <Text style={{ fontSize: 14, color: '#B8CCEB' }}>04 · 可视化与一键部署</Text>
+  </Box>
+  <Box style={{ padding: '24px 40px', flexDirection: 'column', gap: 18 }}>
+    <Box style={{ background: '#F0F5FC', borderRadius: 8, padding: '16px 20px' }}>
+      <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.7 }}>
+        <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>docker compose up -d</span> 一键拉起五服务：<span style={{ fontWeight: 'bold' }}>MySQL 8.0 → Hive Metastore → Hive Server</span>（healthcheck + depends_on 保障启动顺序；warehouse 挂命名卷持久化，容器重建数据零丢失——已实测重建后 KPI 分毫不差）＋ <span style={{ fontWeight: 'bold' }}>Superset + Streamlit</span> 应用层。全部脚本入库，sql/replay_all.sh 可从零重放整个数仓。
+      </Text>
+    </Box>
+    <Box style={{ flexDirection: 'row', gap: 20 }}>
+      <Box style={{ flex: 1.2, background: '#F7F9FC', borderRadius: 8, border: '1px solid #D6DCE5', padding: '16px 22px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>查询优化对比（分区裁剪）</Text>
+        <Box style={{ flexDirection: 'row', gap: 30, marginTop: 4 }}>
+          <Box style={{ flexDirection: 'column' }}>
+            <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#4A5568' }}>4.9s</Text>
+            <Text style={{ fontSize: 13, color: '#4A5568' }}>全表扫描</Text>
+          </Box>
+          <Box style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 24, color: '#1E4FA8' }}>→</Text>
+          </Box>
+          <Box style={{ flexDirection: 'column' }}>
+            <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E4FA8' }}>4.4s</Text>
+            <Text style={{ fontSize: 13, color: '#4A5568' }}>命中 1/12 分区</Text>
+          </Box>
+        </Box>
+        <Text style={{ fontSize: 14, color: '#4A5568', lineHeight: 1.6 }}>
+          小数据集（1.5 万行）下建连与 Tez DAG 提交的固定开销约 4s 占主导，绝对收益有限；亿级数据下分区裁剪避免全表 I/O 的收益是数量级级别的——小数据集的优化重点在架构层（ADS 预聚合、常驻连接池）。
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#F7F9FC', borderRadius: 8, border: '1px solid #D6DCE5', padding: '16px 22px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>并发压测（10 并发 × 20 请求）</Text>
+        <Text style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.7 }}>
+          200 请求全部成功、无失败无超时；P50 响应 10.9s、0.89 QPS——瓶颈在 beeline 每请求新建连接与 Tez DAG 启动开销，改进方向是常驻 HS2 连接池与查询结果缓存，报告已给出量化依据。
+        </Text>
+      </Box>
+    </Box>
+    <Box style={{ background: '#F0F5FC', borderRadius: 8, padding: '12px 20px' }}>
+      <Text style={{ fontSize: 14.5, color: '#1A2230', lineHeight: 1.6 }}>
+        ECharts 数据大屏：1920×1080 设计稿 + scale 整体缩放自适应，7 区块含省份热力地图（ECharts 官方标准 china.js，版图合规）；NL2SQL 问答页与仪表板形成"看数 + 问数"闭环。
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>云购生活新零售数仓 · ydsh-team</Text>
+    <Text style={{ fontSize: 14, color: '#1E4FA8' }}>12</Text>
+  </Box>
+</Slide>

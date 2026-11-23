@@ -1,0 +1,31 @@
+<Slide style={{ width: 1280, height: 720, background: '#0E3F8C', padding: '70px 90px', flexDirection: 'column', justifyContent: 'center', gap: 26 }}>
+  <Text style={{ fontSize: 44, fontWeight: 'bold', color: '#FFFFFF', textAlign: 'center' }}>总结与展望</Text>
+  <Box style={{ flexDirection: 'row', gap: 18 }}>
+    {[
+      ['工程闭环', '从原始 CSV 到可问答系统的端到端交付，23 项一致性核对全通过'],
+      ['诚实的数据文化', '预测退化如实标注、AI 幻觉逐条核查、压测边界写明假设'],
+      ['可靠大于聪明', '拦截层 + 自修复 + 人工验证三道防线，让 AI 在流程内可用'],
+      ['可复现性', '全部脚本与文档入库，docker compose up -d 随时从零重建'],
+    ].map(([t, d]) => (
+      <Box key={t} style={{ flex: 1, background: 'rgba(255,255,255,0.08)', borderRadius: 10, padding: '18px 20px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>{t}</Text>
+        <Text style={{ fontSize: 13.5, color: '#C9D8F0', lineHeight: 1.6 }}>{d}</Text>
+      </Box>
+    ))}
+  </Box>
+  <Box style={{ flexDirection: 'row', gap: 18 }}>
+    <Box style={{ flex: 1, background: 'rgba(255,255,255,0.08)', borderRadius: 10, padding: '16px 20px', flexDirection: 'column', gap: 6 }}>
+      <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>改进方向</Text>
+      <Text style={{ fontSize: 13.5, color: '#C9D8F0', lineHeight: 1.65 }}>
+        接入真实业务数据验证预测特征工程；Hive 常驻连接池改造问答性能；大屏接入实时增量数据；开源沉淀英文 README 与部署镜像。
+      </Text>
+    </Box>
+    <Box style={{ flex: 1, background: 'rgba(255,255,255,0.08)', borderRadius: 10, padding: '16px 20px', flexDirection: 'column', gap: 6 }}>
+      <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF' }}>致谢</Text>
+      <Text style={{ fontSize: 13.5, color: '#C9D8F0', lineHeight: 1.65 }}>
+        感谢指导教师的阶段评审与团队 ydsh-team 的协作。四周迭代中每一次报错与修复，都是这套系统能稳定复现的原因。
+      </Text>
+    </Box>
+  </Box>
+  <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF', textAlign: 'center' }}>敬请各位老师批评指正</Text>
+</Slide>

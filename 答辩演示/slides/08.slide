@@ -1,0 +1,46 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  <Box style={{ width: 1280, height: 56, background: '#1E4FA8', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px' }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#FFFFFF' }}>销售预测：模型表现与诚实的边界分析</Text>
+    <Text style={{ fontSize: 14, color: '#B8CCEB' }}>03 · 经营分析与 AI 集成</Text>
+  </Box>
+  <Box style={{ padding: '26px 40px', flexDirection: 'column', gap: 20 }}>
+    <Box style={{ flexDirection: 'row', gap: 20, alignItems: 'stretch' }}>
+      <Box style={{ flex: 1.3, background: '#F7F9FC', borderRadius: 8, border: '1px solid #D6DCE5', padding: '18px 22px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#0E3F8C' }}>模型设计</Text>
+        <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.7 }}>
+          数据：366 天日粒度 GMV（dws_order_day）　特征：滞后 1/7 天 GMV、7 日滑动均值、星期几　模型：线性回归　评估：最后 30 天滚动测试 + 基线对比
+        </Text>
+        <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.7 }}>
+          输出：未来 7 天预测合计 <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>27.1 万元</span>（日均 38,685 元），趋势图与预测区间图自动生成。
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 8, padding: '18px 22px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#0E3F8C' }}>评估结果</Text>
+        <Box style={{ flexDirection: 'row', gap: 18, marginTop: 6 }}>
+          <Box style={{ flexDirection: 'column', gap: 2 }}>
+            <Text style={{ fontSize: 40, fontWeight: 'bold', color: '#0E3F8C' }}>31.7%</Text>
+            <Text style={{ fontSize: 13, color: '#4A5568' }}>模型 MAPE</Text>
+          </Box>
+          <Box style={{ flexDirection: 'column', gap: 2 }}>
+            <Text style={{ fontSize: 40, fontWeight: 'bold', color: '#3D7BD9' }}>31.5%</Text>
+            <Text style={{ fontSize: 13, color: '#4A5568' }}>均值基线 MAPE</Text>
+          </Box>
+          <Box style={{ flexDirection: 'column', gap: 2 }}>
+            <Text style={{ fontSize: 40, fontWeight: 'bold', color: '#3D7BD9' }}>31.2%</Text>
+            <Text style={{ fontSize: 13, color: '#4A5568' }}>交叉验证 MAPE</Text>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+    <Box style={{ background: '#FFFFFF', borderRadius: 8, border: '1px solid #D9534F', padding: '16px 22px', flexDirection: 'column', gap: 8 }}>
+      <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#D9534F' }}>诚实结论：模型退化为均值外推</Text>
+      <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.7 }}>
+        模型 MAPE（31.7%）与均值基线（31.5%）、交叉验证（31.2%）几乎持平，说明<span style={{ fontWeight: 'bold', color: '#1A2230' }}>本模拟数据的日销为随机波动、无可学习信号</span>。我们如实记录这一边界而非硬凑结论：在小数据 + 随机波动的场景下，任何模型都无法超越均值基线；预测模块的价值在于验证了"特征构建 → 训练评估 → 基线对照 → 图表输出"的完整工程链路，真实业务数据接入后可直接复用。
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>云购生活新零售数仓 · ydsh-team</Text>
+    <Text style={{ fontSize: 14, color: '#1E4FA8' }}>08</Text>
+  </Box>
+</Slide>

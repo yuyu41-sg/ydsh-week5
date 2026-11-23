@@ -1,0 +1,163 @@
+[
+ {
+  "layer": "ODS",
+  "item": "ods_user 行数",
+  "expect": "1000",
+  "actual": "1000",
+  "status": "PASS"
+ },
+ {
+  "layer": "ODS",
+  "item": "ods_product 行数",
+  "expect": "600",
+  "actual": "600",
+  "status": "PASS"
+ },
+ {
+  "layer": "ODS",
+  "item": "ods_store 行数",
+  "expect": "60",
+  "actual": "60",
+  "status": "PASS"
+ },
+ {
+  "layer": "ODS",
+  "item": "ods_order 行数",
+  "expect": "15600",
+  "actual": "15600",
+  "status": "PASS"
+ },
+ {
+  "layer": "ODS",
+  "item": "ods_order_item 行数",
+  "expect": "37549",
+  "actual": "37549",
+  "status": "PASS"
+ },
+ {
+  "layer": "ODS",
+  "item": "ods_user_behavior 行数",
+  "expect": "60000",
+  "actual": "60000",
+  "status": "PASS"
+ },
+ {
+  "layer": "DWD",
+  "item": "dwd_order 行数（去重后 15000）",
+  "expect": "15000",
+  "actual": "15000",
+  "status": "PASS"
+ },
+ {
+  "layer": "DWD",
+  "item": "dwd_order 月分区数",
+  "expect": "12",
+  "actual": "12",
+  "status": "PASS"
+ },
+ {
+  "layer": "DWD",
+  "item": "异常金额残留（<0 或 >10万）",
+  "expect": "0",
+  "actual": "0",
+  "status": "PASS"
+ },
+ {
+  "layer": "DWD",
+  "item": "订单重复残留",
+  "expect": "0",
+  "actual": "0",
+  "status": "PASS"
+ },
+ {
+  "layer": "DWD",
+  "item": "dim_user 与 ODS 用户一致",
+  "expect": "1000",
+  "actual": "1000",
+  "status": "PASS"
+ },
+ {
+  "layer": "DWS",
+  "item": "dws_order_day 天数",
+  "expect": "366",
+  "actual": "366",
+  "status": "PASS"
+ },
+ {
+  "layer": "一致性",
+  "item": "DWS 日汇总 GMV 合计",
+  "expect": "14151214.68",
+  "actual": "14151214.68",
+  "status": "PASS"
+ },
+ {
+  "layer": "一致性",
+  "item": "DWD 明细直接汇总 GMV",
+  "expect": "14151214.68",
+  "actual": "14151214.68",
+  "status": "PASS"
+ },
+ {
+  "layer": "一致性",
+  "item": "ADS KPI GMV",
+  "expect": "14151214.68",
+  "actual": "14151214.68",
+  "status": "PASS"
+ },
+ {
+  "layer": "一致性",
+  "item": "ADS 订单量 = DWD 完成订单数",
+  "expect": "5642",
+  "actual": "5642",
+  "status": "PASS"
+ },
+ {
+  "layer": "ADS",
+  "item": "KPI 订单量",
+  "expect": "5642",
+  "actual": "5642",
+  "status": "PASS"
+ },
+ {
+  "layer": "ADS",
+  "item": "KPI 活跃用户",
+  "expect": "997",
+  "actual": "997",
+  "status": "PASS"
+ },
+ {
+  "layer": "ADS",
+  "item": "KPI 复购率",
+  "expect": "0.9809",
+  "actual": "0.9809",
+  "status": "PASS"
+ },
+ {
+  "layer": "ADS",
+  "item": "ads_sales_daily 行数",
+  "expect": "366",
+  "actual": "366",
+  "status": "PASS"
+ },
+ {
+  "layer": "ADS",
+  "item": "ads_category_top10 行数（共 8 品类）",
+  "expect": "8",
+  "actual": "8",
+  "status": "PASS"
+ },
+ {
+  "layer": "ADS",
+  "item": "ads_user_value 行数 = 活跃用户",
+  "expect": "997",
+  "actual": "997",
+  "status": "PASS"
+ },
+ {
+  "layer": "ADS",
+  "item": "用户分层 GMV 覆盖 = 全期 GMV",
+  "expect": "14151214.68",
+  "actual": "14151214.68",
+  "status": "PASS"
+ }
+]

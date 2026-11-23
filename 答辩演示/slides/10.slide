@@ -1,0 +1,49 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  <Box style={{ width: 1280, height: 56, background: '#1E4FA8', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px' }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#FFFFFF' }}>AI 经营洞察与人工验证：防幻觉实录</Text>
+    <Text style={{ fontSize: 14, color: '#B8CCEB' }}>03 · 经营分析与 AI 集成</Text>
+  </Box>
+  <Box style={{ padding: '24px 40px', flexDirection: 'column', gap: 18 }}>
+    <Box style={{ flexDirection: 'row', gap: 20 }}>
+      <Box style={{ flex: 1, background: '#F7F9FC', borderRadius: 8, border: '1px solid #D6DCE5', padding: '18px 22px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>AI 自动产出</Text>
+        <Text style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.65 }}>
+          ai_insight.py 自动完成：从 Hive 拉取经营指标 → 识别 GMV 环比降幅最大的月份 → 大模型归因分析 → 生成《AI 经营分析摘要》。全程 3 分钟内完成人工需数小时的分析初稿。
+        </Text>
+        <Text style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.65 }}>
+          AI 引用数字：<span style={{ fontFamily: 'Consolas', color: '#0E3F8C' }}>"订单量从 469 下降到 448"</span>，结论指向下滑风险。
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 8, border: '1px solid #D9534F', padding: '18px 22px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#D9534F' }}>人工验证：发现数字幻觉</Text>
+        <Text style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.65 }}>
+          对 AI 引用的数字逐一在 Hive 实查核对：6 月订单 <span style={{ fontWeight: 'bold', color: '#1A2230' }}>443</span> → 7 月 <span style={{ fontWeight: 'bold', color: '#1A2230' }}>448</span>，实为<span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>上升</span>，与 AI 所述"469 下降到 448"不符——AI 把 6 月数字记错，归因结论随之失效。
+        </Text>
+        <Text style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.65 }}>
+          处理：摘要保留 AI 初稿 + 增加"人工验证实录"一节，逐条标注核对结果，供评审追溯。
+        </Text>
+      </Box>
+    </Box>
+    <Box style={{ flexDirection: 'row', gap: 14 }}>
+      {[
+        ['AI 生成', '归因初稿与摘要文字'],
+        ['人工核查', '所有引用数字实查比对'],
+        ['混合交付', 'AI 初稿 + 验证实录双轨呈现'],
+      ].map(([t, d]) => (
+        <Box key={t} style={{ flex: 1, background: '#F0F5FC', borderRadius: 8, padding: '14px 18px', flexDirection: 'column', gap: 4 }}>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#0E3F8C' }}>{t}</Text>
+          <Text style={{ fontSize: 14, color: '#4A5568' }}>{d}</Text>
+        </Box>
+      ))}
+    </Box>
+    <Box style={{ background: '#0E3F8C', borderRadius: 8, padding: '12px 20px' }}>
+      <Text style={{ fontSize: 15, color: '#FFFFFF', lineHeight: 1.6, fontWeight: 'bold' }}>
+        反思：大模型"不可靠"不是弃用理由，而是流程设计问题——数字一律由代码从数仓拉取、AI 只负责叙事，才能兼得效率与可信。
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>云购生活新零售数仓 · ydsh-team</Text>
+    <Text style={{ fontSize: 14, color: '#1E4FA8' }}>10</Text>
+  </Box>
+</Slide>

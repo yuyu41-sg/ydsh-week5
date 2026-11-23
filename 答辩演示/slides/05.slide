@@ -1,0 +1,58 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  <Box style={{ width: 1280, height: 56, background: '#1E4FA8', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px' }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#FFFFFF' }}>数据质量治理：五类脏数据 100% 修复</Text>
+    <Text style={{ fontSize: 14, color: '#B8CCEB' }}>02 · 数据治理与数仓建设</Text>
+  </Box>
+  <Box style={{ padding: '22px 40px', flexDirection: 'column', gap: 16 }}>
+    <Table
+      style={{ width: '100%', height: 300 }}
+      defaultTextStyle={{ fontSize: 15, textAlign: 'center', color: '#1A2230' }}
+      defaultCellStyle={{
+        border: {
+          left: { width: 1, color: '#D6DCE5' },
+          right: { width: 1, color: '#D6DCE5' },
+          top: { width: 1, color: '#D6DCE5' },
+          bottom: { width: 1, color: '#D6DCE5' },
+        },
+      }}
+      cells={[
+        [
+          { text: '脏数据类别', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+          { text: '问题规模（实测）', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+          { text: '处理策略', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+          { text: '修复率', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+        ],
+        ['缺失值', 'age 51、email 193、launch_date 11', '均值填充；unknown + 缺失标记位保留语义', { text: '100%', textStyle: { bold: true, color: '#1E4FA8' } }],
+        ['重复行', '订单 600 条冗余（586 组）', 'ROW_NUMBER 按时间取最新：15600 → 15000 行', { text: '100%', textStyle: { bold: true, color: '#1E4FA8' } }],
+        ['枚举混乱', '6 字段、8~11 种写法混用', '建映射统一中文值域（gender 男/male/M → 男）', { text: '100%', textStyle: { bold: true, color: '#1E4FA8' } }],
+        ['异常值', '金额异常 601、数量异常 1081', '业务上限 10 万判定 + P95 截断；负金额置 0', { text: '100%', textStyle: { bold: true, color: '#1E4FA8' } }],
+        ['格式不规范', '3 种日期、2 种手机号格式', '统一 yyyy-MM-dd；正则去手机号分隔符', { text: '100%', textStyle: { bold: true, color: '#1E4FA8' } }],
+      ]}
+    />
+    <Box style={{ flexDirection: 'row', gap: 20 }}>
+      <Box style={{ flex: 1.4, background: '#F7F9FC', borderRadius: 8, border: '1px solid #D6DCE5', padding: '16px 20px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>关键决策：为什么不用手册建议的 P99？</Text>
+        <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.65 }}>
+          实测 <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>P95 = 4,833.65 元，P99 = 563 万元</span>，跳变逾千倍——分位数已被极值污染（15000 单中 302 条在 10 万~千万级，正常订单全部小于 1 万元）。
+          机械套用 P99 会放过全部异常，故采用<span style={{ fontWeight: 'bold', color: '#D9534F' }}>「业务上限 10 万元」判定 + P95 截断</span>的组合策略，兼顾手册思想与业务合理性。
+        </Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 8, padding: '16px 20px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>清洗后守恒验证</Text>
+        {[
+          ['dwd_order 15,000 行', '= 去重后行数，removed=600 吻合'],
+          ['dwd_order_item 37,549 行', '= ODS 行数，异常数量清零'],
+          ['编码关联命中率', '100%（0 条未命中）'],
+        ].map(([a, b]) => (
+          <Text key={a} style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.6 }}>
+            <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>{a}</span>　{b}
+          </Text>
+        ))}
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>云购生活新零售数仓 · ydsh-team</Text>
+    <Text style={{ fontSize: 14, color: '#1E4FA8' }}>05</Text>
+  </Box>
+</Slide>

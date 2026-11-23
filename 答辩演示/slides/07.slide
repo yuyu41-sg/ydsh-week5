@@ -1,0 +1,48 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  <Box style={{ width: 1280, height: 56, background: '#1E4FA8', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px' }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#FFFFFF' }}>经营指标成果：2024 全年 KPI</Text>
+    <Text style={{ fontSize: 14, color: '#B8CCEB' }}>03 · 经营分析与 AI 集成</Text>
+  </Box>
+  <Box style={{ padding: '30px 40px', flexDirection: 'column', gap: 24 }}>
+    <Box style={{ flexDirection: 'row', gap: 24 }}>
+      {[
+        ['1,415.12 万元', '全年 GMV', 'ADS 层与 DWD 明细、DWS 汇总三层口径完全一致'],
+        ['5,642 单', '全年完成订单', 'COUNT(DISTINCT order_id)，与明细层互验一致'],
+        ['2,508.19 元', '客单价 AOV', 'GMV ÷ 订单量，商家主力客单集中在千元级'],
+      ].map(([n, t, d]) => (
+        <Box key={t} style={{ flex: 1, background: '#F7F9FC', borderRadius: 10, border: '1px solid #D6DCE5', padding: '24px 26px', flexDirection: 'column', gap: 10 }}>
+          <Text style={{ fontSize: 44, fontWeight: 'bold', color: '#0E3F8C' }}>{n}</Text>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#1A2230' }}>{t}</Text>
+          <Text style={{ fontSize: 14, color: '#4A5568', lineHeight: 1.55 }}>{d}</Text>
+        </Box>
+      ))}
+    </Box>
+    <Box style={{ flexDirection: 'row', gap: 24 }}>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 10, padding: '20px 26px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>用户规模与价值分层（997 活跃用户）</Text>
+        {[
+          ['高价值用户（≥2 万）', '201 人 · 499.1 万元'],
+          ['潜力用户（1.2~2 万）', '379 人 · 589.5 万元'],
+          ['一般用户（6 千~1.2 万）', '309 人 · 284.4 万元'],
+          ['低价值用户（<6 千）', '108 人 · 42.2 万元'],
+        ].map(([a, b]) => (
+          <Box key={a} style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 4 }}>
+            <Text style={{ fontSize: 15, color: '#4A5568' }}>{a}</Text>
+            <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#1E4FA8' }}>{b}</Text>
+          </Box>
+        ))}
+      </Box>
+      <Box style={{ flex: 1, background: '#F7F9FC', borderRadius: 10, border: '1px solid #D6DCE5', padding: '20px 26px', flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>指标判断（数据说明什么）</Text>
+        <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.7 }}>
+          复购率 <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>98.09%</span>（人均 5.7 单）显著高于真实零售场景（通常 20%~40%），源于模拟数据人均订单量偏高——报告中已如实标注，避免误读为业务成果。
+          <br />高价值 + 潜力用户合计 <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>580 人（58%）</span>贡献 76% 消费额，分层运营可聚焦该群体。
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>云购生活新零售数仓 · ydsh-team</Text>
+    <Text style={{ fontSize: 14, color: '#1E4FA8' }}>07</Text>
+  </Box>
+</Slide>

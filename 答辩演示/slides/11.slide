@@ -1,0 +1,26 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  <Box style={{ width: 1280, height: 56, background: '#1E4FA8', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px' }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#FFFFFF' }}>可视化成果：经营仪表板（真实系统截图）</Text>
+    <Text style={{ fontSize: 14, color: '#B8CCEB' }}>04 · 可视化与一键部署</Text>
+  </Box>
+  <Box style={{ padding: '18px 40px', flexDirection: 'column', gap: 14 }}>
+    <Image src="assets/dashboard_top.png" style={{ width: 1200, height: 340, objectFit: 'cover', borderRadius: 8, border: '1px solid #D6DCE5' }} />
+    <Image src="assets/dashboard_bottom.png" style={{ width: 1200, height: 170, objectFit: 'cover', borderRadius: 8, border: '1px solid #D6DCE5' }} />
+    <Box style={{ flexDirection: 'row', gap: 14 }}>
+      {[
+        ['6 图联动', 'KPI 大数字 / GMV 折线 / 品类柱状 / 省份条形 / 支付漏斗 / 门店 TopN'],
+        ['双数据源', 'Superset 同时对接 Hive（明细下钻）与 MySQL（ADS 指标镜像）'],
+        ['技术要点', '驱动入 venv、MySQLdb 兼容层、插件版本适配——排障全部沉淀脚本可复现'],
+      ].map(([t, d]) => (
+        <Box key={t} style={{ flex: 1, background: '#F0F5FC', borderRadius: 8, padding: '10px 16px', flexDirection: 'column', gap: 3 }}>
+          <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#0E3F8C' }}>{t}</Text>
+          <Text style={{ fontSize: 12.5, color: '#4A5568', lineHeight: 1.45 }}>{d}</Text>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>云购生活新零售数仓 · ydsh-team</Text>
+    <Text style={{ fontSize: 14, color: '#1E4FA8' }}>11</Text>
+  </Box>
+</Slide>

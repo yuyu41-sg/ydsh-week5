@@ -1,0 +1,49 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  <Box style={{ width: 1280, height: 56, background: '#1E4FA8', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px' }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#FFFFFF' }}>总体架构：四层数仓 + 分析 AI + 可视化部署</Text>
+    <Text style={{ fontSize: 14, color: '#B8CCEB' }}>01 · 项目背景与总体架构</Text>
+  </Box>
+  <Box style={{ padding: '24px 40px', flexDirection: 'column', gap: 18 }}>
+    <Box style={{ flexDirection: 'row', gap: 14, alignItems: 'stretch' }}>
+      <Box style={{ width: 150, justifyContent: 'center', background: '#0E3F8C', borderRadius: 8, padding: 12 }}>
+        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', textAlign: 'center' }}>数据源<br />6 张 CSV<br />11.5 万行</Text>
+      </Box>
+      <Box style={{ flex: 1, flexDirection: 'column', gap: 10 }}>
+        {[
+          ['ODS 贴源层  ydsh_ods', '6 表原样接入，TEXTFILE，保留原始脏数据', '#1E4FA8'],
+          ['DWD 明细层  ydsh_dwd', '清洗后事实 + 维度（星型模型）：ORC 列存、按月 12 分区、user_id 4 桶', '#1E4FA8'],
+          ['DWS 汇总层  ydsh_dws', '日 × 全局/门店/品类/渠道 4 张轻度汇总表，按月分区', '#3D7BD9'],
+          ['ADS 应用层  ydsh_ads', 'KPI 总表、日销环比、品类 Top、用户价值分层 5 张应用表', '#3D7BD9'],
+        ].map(([t, d, c]) => (
+          <Box key={t} style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 8, border: '1px solid #D6DCE5', flexDirection: 'row', alignItems: 'center', gap: 16, padding: '10px 18px' }}>
+              <Box style={{ width: 6, height: 30, background: c, borderRadius: 2 }} />
+              <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#0E3F8C', width: 210 }}>{t}</Text>
+              <Text style={{ fontSize: 14.5, color: '#4A5568', flex: 1 }}>{d}</Text>
+            </Box>
+          </Box>
+        ))}
+      </Box>
+    </Box>
+    <Box style={{ flexDirection: 'row', gap: 14 }}>
+      {[
+        ['分析 AI 层', '线性回归预测（滞后/滑窗特征）· 智谱 GLM 洞察归因'],
+        ['NL2SQL 问数', 'Schema 注入 + 只读拦截 + 报错自修复，GLM glm-4-flash'],
+        ['可视化层', 'Superset 仪表板（6 图）· ECharts 大屏（7 区块）· Streamlit 问答'],
+      ].map(([t, d]) => (
+        <Box key={t} style={{ flex: 1, background: '#F7F9FC', borderRadius: 8, border: '1px solid #D6DCE5', padding: '12px 16px', flexDirection: 'column', gap: 4 }}>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#0E3F8C' }}>{t}</Text>
+          <Text style={{ fontSize: 13.5, color: '#4A5568', lineHeight: 1.5 }}>{d}</Text>
+        </Box>
+      ))}
+    </Box>
+    <Box style={{ background: '#0E3F8C', borderRadius: 8, padding: '12px 20px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+      <Text style={{ fontSize: 15, color: '#FFFFFF', fontWeight: 'bold' }}>部署底座：Docker Compose 五服务编排</Text>
+      <Text style={{ fontSize: 14, color: '#C9D8F0' }}>MySQL 8.0 → Hive Metastore → Hive Server（warehouse 命名卷）｜ Superset ｜ Streamlit，healthcheck 保障启动顺序</Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>云购生活新零售数仓 · ydsh-team</Text>
+    <Text style={{ fontSize: 14, color: '#1E4FA8' }}>04</Text>
+  </Box>
+</Slide>

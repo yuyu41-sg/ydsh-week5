@@ -1,0 +1,23 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', flexDirection: 'row' }}>
+  <Box style={{ width: 360, height: 720, background: '#0E3F8C', padding: '120px 40px', flexDirection: 'column' }}>
+    <Text style={{ fontSize: 40, fontWeight: 'bold', color: '#FFFFFF' }}>目录</Text>
+    <Text style={{ fontSize: 16, color: '#B8CCEB', marginTop: 14, lineHeight: 1.6 }}>CONTENTS<br />云购生活数仓项目<br />综合答辩汇报</Text>
+  </Box>
+  <Box style={{ flex: 1, height: 720, background: '#FFFFFF', padding: '70px 50px', flexDirection: 'column', gap: 22 }}>
+    {[
+      ['01', '项目背景与总体架构', '业务痛点、建设目标、四层数仓与技术选型'],
+      ['02', '数据治理与数仓建设', '五类脏数据治理、星型建模、分区策略'],
+      ['03', '经营分析与 AI 集成', 'KPI 指标闭环、销售预测、NL2SQL 智能问数'],
+      ['04', '可视化与一键部署', 'Superset 仪表板、ECharts 大屏、Docker 编排'],
+      ['05', '工程化与总结', '五大项目文档、Git 审查、演示演练与展望'],
+    ].map(([n, t, d]) => (
+      <Box key={n} style={{ flexDirection: 'row', alignItems: 'center', gap: 24, background: '#F7F9FC', borderRadius: 8, padding: '16px 24px', border: '1px solid #D6DCE5' }}>
+        <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#1E4FA8' }}>{n}</Text>
+        <Box style={{ flexDirection: 'column', gap: 4 }}>
+          <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#1A2230' }}>{t}</Text>
+          <Text style={{ fontSize: 14, color: '#4A5568' }}>{d}</Text>
+        </Box>
+      </Box>
+    ))}
+  </Box>
+</Slide>

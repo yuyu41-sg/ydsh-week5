@@ -1,0 +1,51 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  <Box style={{ width: 1280, height: 56, background: '#1E4FA8', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 40px' }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#FFFFFF' }}>NL2SQL 智能问数：三道防线保证可靠</Text>
+    <Text style={{ fontSize: 14, color: '#B8CCEB' }}>03 · 经营分析与 AI 集成</Text>
+  </Box>
+  <Box style={{ padding: '24px 40px', flexDirection: 'column', gap: 18 }}>
+    <Box style={{ flexDirection: 'row', gap: 14, alignItems: 'stretch' }}>
+      {[
+        ['① 生成约束', 'Schema 注入', '10 表结构、字段注释与 few-shot 示例注入系统提示词；限定只生成 SELECT'],
+        ['② 安全拦截', 'SELECT-only', '正则检测 INSERT / UPDATE / DELETE / DROP 等写关键字，命中即拒绝执行'],
+        ['③ 报错自修复', 'repair_sql()', 'Hive 报错回传大模型重写 SQL，最多 2 次重试；实测 1 次即收敛'],
+      ].map(([t, tag, d], idx) => (
+        <Box key={t} style={{ flex: 1, background: '#F7F9FC', borderRadius: 8, border: '1px solid #D6DCE5', padding: '18px 20px', flexDirection: 'column', gap: 8 }}>
+          <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>{t}</Text>
+            <Box style={{ background: '#E8EFF8', borderRadius: 10, padding: '2px 10px' }}>
+              <Text style={{ fontSize: 12.5, color: '#1E4FA8', fontWeight: 'bold' }}>{tag}</Text>
+            </Box>
+          </Box>
+          <Text style={{ fontSize: 14.5, color: '#4A5568', lineHeight: 1.6 }}>{d}</Text>
+        </Box>
+      ))}
+    </Box>
+    <Box style={{ background: '#F0F5FC', borderRadius: 8, padding: '14px 20px' }}>
+      <Text style={{ fontSize: 15.5, color: '#1A2230', lineHeight: 1.7 }}>
+        <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>实测修复案例：</span>GLM 生成 <span style={{ fontFamily: 'Consolas', color: '#0E3F8C' }}>GROUP BY order_month</span>（SELECT 别名）被 Hive 拒绝（SemanticException 10004）→ 错误信息回传模型 → 1 次重试改写为完整表达式 → 执行成功返回 12 个月数据。大模型本身不可靠，但<span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>流程可以可靠</span>——这正是三道防线的设计动机。
+      </Text>
+    </Box>
+    <Box style={{ flexDirection: 'row', gap: 14 }}>
+      {[
+        ['4 / 4', '测试用例通过（含 1 个安全负例）'],
+        ['3 / 3', '正例一次生成或 1 次自修复后执行成功'],
+        ['1 / 1', '负例"删除所有订单数据"被拦截，未触达 Hive'],
+      ].map(([n, d]) => (
+        <Box key={n} style={{ flex: 1, background: '#FFFFFF', borderRadius: 8, border: '1px solid #D6DCE5', padding: '12px 16px', flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#1E4FA8' }}>{n}</Text>
+          <Text style={{ fontSize: 13.5, color: '#4A5568', lineHeight: 1.5, flex: 1 }}>{d}</Text>
+        </Box>
+      ))}
+    </Box>
+    <Box style={{ background: '#0E3F8C', borderRadius: 8, padding: '10px 18px' }}>
+      <Text style={{ fontSize: 14.5, color: '#C9D8F0', lineHeight: 1.5 }}>
+        模型：智谱 GLM glm-4-flash（OpenAI 兼容接口，免费额度零成本）｜密钥经 .env 注入、.gitignore 排除，全程未入库入仓
+      </Text>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>云购生活新零售数仓 · ydsh-team</Text>
+    <Text style={{ fontSize: 14, color: '#1E4FA8' }}>09</Text>
+  </Box>
+</Slide>
